@@ -2,6 +2,10 @@
 .vs
 bin
 bin-int
+vendor/premake
 
 # Files.
 *.user
+*.sln
+*.vcxproj
+*.vcxproj.*
