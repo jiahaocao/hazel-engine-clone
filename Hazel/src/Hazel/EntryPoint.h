@@ -2,7 +2,6 @@
 #ifndef HAZEL_ENTRY_POINT_H
 #define HAZEL_ENTRY_POINT_H
 
-#include <iostream>
 #include "Log.h"
 
 extern Hazel::Application* Hazel::CreateApplication();
