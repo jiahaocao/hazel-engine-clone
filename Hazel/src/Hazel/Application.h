@@ -3,6 +3,7 @@
 #define HAZEL_APPLICATION_H
 
 #include "Core.h"
+#include "Window.h"
 
 namespace Hazel {
 
@@ -11,10 +12,16 @@ namespace Hazel {
 		Application();
 		virtual ~Application();
 		void Run();
+
+	private:
+		bool m_Running = true;
+		std::unique_ptr<Window> m_Window;
 	};
 
 	// To be defined in the client code.
 	Application* CreateApplication();
+
+
 }
 
 #endif  // HAZEL_APPLICATION_H

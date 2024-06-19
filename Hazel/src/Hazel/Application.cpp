@@ -3,12 +3,12 @@
 #include "Hazel/Events/ApplicationEvent.h"
 #include "Hazel/Log.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Hazel {
 
-	Application::Application()
-	{
-
-	}
+	Application::Application() :
+		m_Window(Window::Create()) { }
 
 	Application::~Application()
 	{
@@ -17,7 +17,9 @@ namespace Hazel {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		HZ_TRACE(e.ToString());
+		while (m_Running) {
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
+		}
 	}
 }

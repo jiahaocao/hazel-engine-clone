@@ -14,7 +14,6 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
 include "Hazel/vendor/GLFW"
 
-
 project "Hazel"
     location "Hazel"
     kind "SharedLib"
