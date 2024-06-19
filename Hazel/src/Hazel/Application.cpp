@@ -32,6 +32,9 @@ namespace Hazel {
 			glEnd();
 
 			m_Window->OnUpdate();
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
 		}
 	}
 	void Application::OnEvent(Event& e)
@@ -41,6 +44,23 @@ namespace Hazel {
 			std::bind(&Application::OnWindowClose, this, std::placeholders::_1)
 		);
 		HZ_CORE_INFO("{0}", e.ToString());
+
+		//// Overlays should handle the event first.
+		//for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); ) {
+		//	(*--it)->OnEvent(e);
+		//	if (e.IsHandled())
+		//		break;
+		//}
+	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* overlay)
+	{
+		m_LayerStack.PushOverlay(overlay);
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
