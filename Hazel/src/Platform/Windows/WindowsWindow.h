@@ -34,6 +34,7 @@ namespace Hazel {
 			unsigned int width;
 			unsigned int height;
 			bool vsync;
+			EventCallbackFn eventCallback;
 		};
 
 		WindowData m_Data;
