@@ -1,6 +1,8 @@
 #include "hzpch.h"
 #include "WindowsWindow.h"
 
+#include <glad/glad.h>
+
 #include "Hazel/Log.h"
 #include "Hazel/Events/Event.h"
 #include "Hazel/Events/KeyEvent.h"
@@ -85,6 +87,14 @@ void WindowsWindow::Init()
     m_Window = glfwCreateWindow((int)m_Data.width, (int)m_Data.height, m_Data.title.c_str(), nullptr, nullptr);
     glfwMakeContextCurrent(m_Window);
     SetVSync(true);
+
+    // Load OpenGL function pointers using Glad.
+
+    int ret = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    HZ_ASSERT(res, "Glad not initialized.");
+
+
+
 
     // By binding a pointer to user data to a GLFW window, the bound user data is accessible
     // everywhere the GLFW window is present. In our case, a user pointer is used to synchronize
