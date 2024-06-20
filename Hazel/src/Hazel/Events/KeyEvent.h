@@ -3,6 +3,7 @@
 #include "Event.h"
 
 namespace Hazel {
+
 class HAZEL_API KeyEvent : public Event {
 public:
     inline int GetKeyCode() const { return m_KeyCode; }
@@ -23,11 +24,12 @@ public:
     std::string ToString() const override
     {
         std::stringstream ss;
-        ss << "KeyPressedEvent: " << m_KeyCode << "(" << m_RepeatCount << " repeats)";
+        ss << GetName() << "Event: ";
+        ss << m_KeyCode << "(" << m_RepeatCount << " repeats)";
         return ss.str();
     }
 
-    EVENT_CLASS_TYPE(KeyPressed);
+    EVENT_CLASS_TYPE(KeyPressed)
 
 private:
     int m_RepeatCount;
@@ -40,12 +42,12 @@ public:
     std::string ToString() const override
     {
         std::stringstream ss;
-        ss << "KeyReleaseEvent: " << m_KeyCode;
+        ss << GetName() << "Event: ";
+        ss << m_KeyCode;
         return ss.str();
     }
 
-    EVENT_CLASS_TYPE(KeyReleased);
+    EVENT_CLASS_TYPE(KeyReleased)
 };
-
 
 }  // namespace Hazel

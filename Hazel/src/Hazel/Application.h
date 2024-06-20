@@ -3,7 +3,8 @@
 #include "Core.h"
 #include "Hazel/Window.h"
 #include "Hazel/Layers/LayerStack.h"
-#include "Hazel/Events/ApplicationEvent.h"
+#include "Hazel/Events/WindowEvent.h"
+#include "Hazel/Events/AppEvent.h"
 
 namespace Hazel {
 

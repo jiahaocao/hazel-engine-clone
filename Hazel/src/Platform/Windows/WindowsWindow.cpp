@@ -5,7 +5,8 @@
 #include "Hazel/Events/Event.h"
 #include "Hazel/Events/KeyEvent.h"
 #include "Hazel/Events/MouseEvent.h"
-#include "Hazel/Events/ApplicationEvent.h"
+#include "Hazel/Events/WindowEvent.h"
+#include "Hazel/Events/AppEvent.h"
 
 namespace Hazel {
 
