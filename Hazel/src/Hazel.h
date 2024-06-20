@@ -8,6 +8,7 @@
 #include "Hazel/Layers/Layer.h"
 #include "Hazel/Application.h"
 #include "Hazel/EntryPoint.h"
+#include "Hazel/ImGui/ImGuiLayer.h"
 #include "Hazel/Log.h"
 
 #endif  // HAZEL_HAZEL_H

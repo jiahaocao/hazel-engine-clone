@@ -21,6 +21,7 @@ public:
 
     void OnUpdate() override;
 
+    GLFWwindow *GetGLFWWindow() const { return m_Window; }
 
 private:
     virtual void Init();

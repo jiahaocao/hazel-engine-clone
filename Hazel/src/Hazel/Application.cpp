@@ -6,9 +6,13 @@
 
 namespace Hazel {
 
+Application *Application::s_Instance = nullptr;
+
 Application::Application() :
     m_Window(Window::Create())
 {
+    HZ_CORE_ASSERT(s_Instance == nullptr, "Can only have one application.")
+    s_Instance = this;
     m_Window->SetEventCallback(
         std::bind(&Application::OnEvent, this, std::placeholders::_1)
     );
@@ -25,10 +29,11 @@ void Application::Run()
         glClearColor(0.0f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        m_Window->OnUpdate();
-
         for (Layer *layer : m_LayerStack)
             layer->OnUpdate();
+
+        m_Window->OnUpdate();
+
     }
 }
 

@@ -78,8 +78,8 @@ void WindowsWindow::Init()
 
     // Initialize GLFW if needed.
     if (!s_GLFWInitialized && !InitializeGLFW())
-        HZ_CORE_ERROR("Could not initialize GLFW.");
-    HZ_ASSERT(s_GLFWInitialized, "GLFW not initialized.");
+        HZ_CORE_ERROR("Failed to initialize GLFW.");
+    HZ_ASSERT(s_GLFWInitialized, "GLFW must be initialized.");
 
     // Set GLFW error callback.
     glfwSetErrorCallback(GLFWErrorCallback);
@@ -91,10 +91,7 @@ void WindowsWindow::Init()
     // Load OpenGL function pointers using Glad.
 
     int ret = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-    HZ_ASSERT(res, "Glad not initialized.");
-
-
-
+    HZ_ASSERT(res, "Glad must be initialized.");
 
     // By binding a pointer to user data to a GLFW window, the bound user data is accessible
     // everywhere the GLFW window is present. In our case, a user pointer is used to synchronize
