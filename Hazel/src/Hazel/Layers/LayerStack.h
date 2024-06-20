@@ -21,9 +21,12 @@ public:
 
 private:
 
-    // m_Layers is divided into two parts. The first part consists of layers
-    // and the second part consists of overlays. m_LayerInsert points to the
-    // beginning of the overlay part (that is, one past the last layer.)
+    // m_Layers is divided into two parts. The first part consists of layers while the second part
+    // consists of overlays. m_LayerInsert is an iterator that points to the first element of the
+    // overlay part (that is, the element one past the last layer element.)
+    
+    // m_Layers[0:m_LayerInsert-1]  = layers
+    // m_Layers[m_LayerInsert:last] = overlays
 
     std::vector<Layer *> m_Layers;
     std::vector<Layer *>::iterator m_LayerInsert;

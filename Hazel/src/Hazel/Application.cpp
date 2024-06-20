@@ -38,20 +38,21 @@ void Application::Run()
     }
 }
 
-void Application::OnEvent(Event &e)
+void Application::OnEvent(Event &event)
 {
-    EventDispatcher dispatcher(e);
+    EventDispatcher dispatcher(event);
     dispatcher.Dispatch<WindowCloseEvent>(
         std::bind(&Application::OnWindowClose, this, std::placeholders::_1)
     );
-    HZ_CORE_INFO("{0}", e.ToString());
 
-    //// Overlays should handle the event first.
-    //for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); ) {
-    //	(*--it)->OnEvent(e);
-    //	if (e.IsHandled())
-    //		break;
-    //}
+    HZ_CORE_INFO("{0}", event.ToString());
+
+    // Overlays should handle the event first.
+    for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); ) {
+        (*--it)->OnEvent(event);
+        if (event.IsHandled())
+            break;
+    }
 }
 
 void Application::PushLayer(Layer *layer)
@@ -64,7 +65,7 @@ void Application::PushOverlay(Layer *overlay)
     m_LayerStack.PushOverlay(overlay);
 }
 
-bool Application::OnWindowClose(WindowCloseEvent &e)
+bool Application::OnWindowClose(WindowCloseEvent &event)
 {
     m_Running = false;
     return true;
