@@ -4,6 +4,7 @@
 
 // For use by client code.
 
+#include "hzpch.h"
 #include "Hazel/Layers/Layer.h"
 #include "Hazel/Application.h"
 #include "Hazel/EntryPoint.h"

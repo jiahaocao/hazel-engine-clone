@@ -3,5 +3,4 @@
 
 namespace Hazel {
 
-
 }  // namespace Hazel

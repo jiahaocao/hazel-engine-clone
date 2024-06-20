@@ -17,6 +17,13 @@ namespace Hazel {
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
+	// When declaring enumerations, "enum class" is generally preferred. However, in our case, an
+	// event may be in multiple categories and we need to perform bitwise operations (&) to check
+	// which categories an event is in. Because "enum class" does not support implicit conversion,
+	// "enum" is used for being more convenient. Note that when declaring enumerations using "enum",
+	// the best practice is to prefix each name with the name of the "enum". This reduces the risk
+	// of naming conflict.
+
 	enum EventCategory {
 		None = 0,
 		EventCategoryApplication = BIT(0),
@@ -33,6 +40,9 @@ virtual const char* GetName() const override { return #type; }
 
 #define EVENT_CLASS_CATEGORY(category) \
 virtual int GetCategoryFlags() const override { return category; }
+
+	/**********************************************************************************************/
+	/**********************************************************************************************/
 
 	class HAZEL_API Event {
 	private:

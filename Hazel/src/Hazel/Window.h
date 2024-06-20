@@ -1,6 +1,5 @@
 #pragma once
 
-#include "hzpch.h"
 #include "Hazel/Core.h"
 #include "Hazel/Events/Event.h"
 
@@ -19,6 +18,7 @@ namespace Hazel {
 	};
 
 	// Declaring pure virtual member functions makes a class abstract.
+	// Each platform gets its own window class as window management is platform-specific.
 	class HAZEL_API Window {
 	public:
 		static Window* Create(const WindowProps& props = WindowProps());
