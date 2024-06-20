@@ -1,6 +1,4 @@
 #pragma once
-#ifndef HAZEL_APPLICATION_H
-#define HAZEL_APPLICATION_H
 
 #include "Core.h"
 #include "Hazel/Window.h"
@@ -9,28 +7,25 @@
 
 namespace Hazel {
 
-	class HAZEL_API Application {
-	public:
-		Application();
-		virtual ~Application();
-		void Run();
+class HAZEL_API Application {
+public:
+    Application();
+    virtual ~Application();
+    void Run();
 
-		void OnEvent(Event& e);
+    void OnEvent(Event &e);
 
-		void PushLayer(Layer* layer);
-		void PushOverlay(Layer* overlay);
+    void PushLayer(Layer *layer);
+    void PushOverlay(Layer *overlay);
 
-	private:
-		bool m_Running = true;
-		std::unique_ptr<Window> m_Window;
-		bool OnWindowClose(WindowCloseEvent& e);
-		LayerStack m_LayerStack;
-	};
+private:
+    bool m_Running = true;
+    std::unique_ptr<Window> m_Window;
+    bool OnWindowClose(WindowCloseEvent &e);
+    LayerStack m_LayerStack;
+};
 
-	// To be defined in the client code.
-	Application* CreateApplication();
+// To be defined in the client code.
+Application *CreateApplication();
 
-
-}
-
-#endif  // HAZEL_APPLICATION_H
+}  // namespace Hazel

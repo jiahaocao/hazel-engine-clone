@@ -1,6 +1,4 @@
 #pragma once
-#ifndef HAZEL_CORE_H
-#define HAZEL_CORE_H
 
 #ifdef HZ_PLATFORM_WINDOWS
 	#ifdef HZ_BUILD_DLL
@@ -27,5 +25,3 @@
 #define HZ_CORE_ASSERT(x, ...)
 #define HZ_ASSERT(x, ...) 
 #endif
-
-#endif  // HAZEL_CORE_H
