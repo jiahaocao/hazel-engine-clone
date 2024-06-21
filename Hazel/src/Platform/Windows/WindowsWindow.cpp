@@ -102,8 +102,6 @@ void WindowsWindow::Init()
     glfwSetWindowUserPointer(m_Window, &m_Data);
 
     m_GLFWData = std::make_unique<GLFWData>(m_Window);
-
-    // InitGLFW2HazelTranslation
 }
 
 void WindowsWindow::Shutdown()
