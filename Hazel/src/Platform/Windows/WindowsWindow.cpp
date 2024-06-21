@@ -166,10 +166,10 @@ void WindowsWindow::Init()
             }
         });
 
-    glfwSetScrollCallback(m_Window, [](GLFWwindow *window, double xoff, double yoff)
+    glfwSetScrollCallback(m_Window, [](GLFWwindow *window, double xoffset, double yoffset)
         {
             WindowData &data = *(WindowData *)glfwGetWindowUserPointer(window);
-            MouseScrolledEvent event((float)xoff, (float)yoff);
+            MouseScrolledEvent event((float)xoffset, (float)yoffset);
             data.eventCallback(event);
         });
 
