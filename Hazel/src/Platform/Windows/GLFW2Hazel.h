@@ -34,6 +34,7 @@ private:
     GLFWmousebuttonfun  m_CallbackMouseButton   = nullptr;
     GLFWscrollfun       m_CallbackScroll        = nullptr;
     GLFWkeyfun          m_CallbackKey           = nullptr;
+    GLFWcharfun         m_CallbackChar          = nullptr;
 
 private:
     void InstallCallbacks();

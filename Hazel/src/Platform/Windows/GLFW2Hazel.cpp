@@ -8,6 +8,7 @@
 #include "Hazel/Events/KeyEvent.h"
 #include "Hazel/Events/MouseEvent.h"
 #include "Hazel/Events/WindowEvent.h"
+#include "Hazel/Log.h"
 
 namespace Hazel {
 
@@ -98,6 +99,13 @@ void GLFWData::InstallCallbacks()
                 break;
             }
             }
+        });
+
+    m_CallbackChar = glfwSetCharCallback(m_Window, [](GLFWwindow *window, unsigned int codepoint)
+        {
+            WindowData &data = *(WindowData *)glfwGetWindowUserPointer(window);
+            KeyCharEvent event(codepoint);
+            data.eventCallback(event);
         });
 }
 

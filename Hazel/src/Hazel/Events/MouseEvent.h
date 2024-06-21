@@ -32,7 +32,7 @@ private:
 
 class HAZEL_API MouseScrolledEvent : public MouseEvent {
 public:
-    MouseScrolledEvent(float xofs, float yofs) : m_OffsetX(xofs), m_OffsetY(xofs) { }
+    MouseScrolledEvent(float xofs, float yofs) : m_OffsetX(xofs), m_OffsetY(yofs) { }
 
     inline float GetXOffset() const { return m_OffsetX; }
     inline float GetYOffset() const { return m_OffsetY; }
