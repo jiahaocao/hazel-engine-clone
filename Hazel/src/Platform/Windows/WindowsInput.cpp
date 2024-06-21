@@ -1,5 +1,4 @@
 #include "hzpch.h"
-#include "hzpch.h"
 #include "WindowsInput.h"
 
 #include <GLFW/glfw3.h>

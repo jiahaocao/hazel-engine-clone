@@ -11,4 +11,7 @@
 #include "Hazel/ImGui/ImGuiLayer.h"
 #include "Hazel/Log.h"
 
+#include "Hazel/Defines/KeyCodes.h"
+#include "Hazel/Defines/MouseButtonCodes.h"
+
 #endif  // HAZEL_HAZEL_H

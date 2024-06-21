@@ -4,6 +4,8 @@
 
 #include <glad/glad.h>
 #include "Hazel/Input.h"
+#include "Hazel/Defines/KeyCodes.h"
+#include "Hazel/Defines/MouseButtonCodes.h"
 
 namespace Hazel {
 
@@ -33,11 +35,7 @@ void Application::Run()
         for (Layer *layer : m_LayerStack)
             layer->OnUpdate();
 
-        auto [x, y] = InputManager::GetMousePosition();
-        HZ_CORE_TRACE("{0}, {1}", x, y);
-
         m_Window->OnUpdate();
-
     }
 }
 
