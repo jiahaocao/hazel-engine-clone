@@ -7,3 +7,6 @@
 [submodule "Hazel/vendor/ImGui"]
 	path = Hazel/vendor/ImGui
 	url = https://github.com/ocornut/imgui.git
+[submodule "Hazel/vendor/Eigen"]
+	path = Hazel/vendor/Eigen
+	url = https://gitlab.com/libeigen/eigen.git

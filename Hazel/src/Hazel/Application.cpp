@@ -7,6 +7,8 @@
 #include "Hazel/Defines/KeyCodes.h"
 #include "Hazel/Defines/MouseButtonCodes.h"
 
+#include <Eigen>
+
 namespace Hazel {
 
 Application *Application::s_Instance = nullptr;
@@ -37,6 +39,17 @@ void Application::Run()
 
         m_Window->OnUpdate();
     }
+
+    Eigen::Vector4f pos;
+    pos << 1.0f, 2.0f, 3.0f, 1.0f;
+
+    Eigen::Matrix4f mat = Eigen::Matrix4f::Identity();
+    mat(0, 3) = 10.0f;
+    mat(1, 3) = 20.0f;
+    mat(2, 3) = 30.0f;
+
+    auto res = mat * pos;
+    std::cout << res << std::endl;
 }
 
 void Application::OnEvent(Event &event)
