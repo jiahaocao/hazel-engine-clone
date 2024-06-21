@@ -11,10 +11,10 @@ public:
     ImGuiLayer();
     ~ImGuiLayer();
 
-    virtual void OnAttach();
-    virtual void OnDetach();
-    virtual void OnUpdate();
-    virtual void OnEvent(Event &event);
+    virtual void OnAttach() override;
+    virtual void OnDetach() override;
+    virtual void OnUpdate() override;
+    virtual void OnEvent(Event &event) override;
 
 private:
     bool OnMouseMovedEvent(MouseMovedEvent &event);

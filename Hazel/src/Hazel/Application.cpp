@@ -46,7 +46,7 @@ void Application::OnEvent(Event &event)
 
     HZ_CORE_INFO("{0}", event.ToString());
 
-    // Overlays should handle the event first.
+    // Events are pass to overlays first.
     for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); ) {
         (*--it)->OnEvent(event);
         if (event.IsHandled())

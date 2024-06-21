@@ -26,15 +26,15 @@ void LayerStack::PopLayer(Layer *layer)
     }
 }
 
-void LayerStack::PushOverlay(Layer *overlay)
+void LayerStack::PushOverlay(Layer *layer)
 {
-    m_Layers.emplace_back(overlay);
-    overlay->OnAttach();
+    m_Layers.emplace_back(layer);
+    layer->OnAttach();
 }
 
-void LayerStack::PopOverlay(Layer *overlay)
+void LayerStack::PopOverlay(Layer *layer)
 {
-    auto it = std::find(m_Layers.begin(), m_Layers.end(), overlay);
+    auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
     if (it != m_Layers.end())
         m_Layers.erase(it);
 }

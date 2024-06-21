@@ -6,8 +6,8 @@
 namespace Hazel {
 
 // Events propagate through layers. If an event is handled by a layer, the layers that follow won't
-// receive the event. For example, we don't want our player character to react to a mouse pressed
-// event if the click is on a UI element and is handled by a UI layer.
+// receive the event. For example, the player character is not supposed to react to a mouse pressed
+// event if the mouse click is on a UI element and is handled by a UI layer.
 
 class HAZEL_API Layer {
 public:

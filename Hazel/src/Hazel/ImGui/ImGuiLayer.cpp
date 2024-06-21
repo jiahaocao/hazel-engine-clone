@@ -9,31 +9,25 @@
 
 #include "Hazel/Application.h"
 #include "Hazel/Events/Event.h"
+#include "Hazel/Events/MouseEvent.h"
 
 #define HZ_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
-
 
 static ImGuiKey ImGui_ImplGlfw_KeyToImGuiKey(int key);
 
 namespace Hazel {
 
-ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer")
-{
-}
+ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") { }
 
-ImGuiLayer::~ImGuiLayer()
-{
-}
+ImGuiLayer::~ImGuiLayer() { }
 
 void ImGuiLayer::OnAttach()
 {
-    const char *glsl_version = "#version 130";
     ImGui::CreateContext();
     ImGui::StyleColorsDark();
     ImGuiIO &io = ImGui::GetIO();
     io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
     io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
-
     ImGui_ImplOpenGL3_Init("#version 410");
 }
 

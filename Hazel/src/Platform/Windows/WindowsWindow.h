@@ -2,6 +2,7 @@
 
 #include <GLFW/glfw3.h>
 #include "Hazel/Window.h"
+#include "GLFW2Hazel.h"
 
 namespace Hazel {
 
@@ -29,16 +30,9 @@ private:
 
 private:
     GLFWwindow *m_Window = nullptr;
-
-    struct WindowData {
-        std::string title;
-        unsigned int width;
-        unsigned int height;
-        bool vsync;
-        EventCallbackFn eventCallback;
-    };
-
     WindowData m_Data;
+
+    std::unique_ptr<GLFWData> m_GLFWData;
 };
 
 }  // namespace Hazel
